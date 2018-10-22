@@ -4,9 +4,9 @@ module QyWechat
 
     include ReplyMessageHelper
 
-    skip_before_filter :verify_authenticity_token, only: :reply
-    before_filter :setup_qy_app, only: [:verify_url, :reply]
-    before_filter :setup_wechat_message, only: :reply
+    skip_before_action :verify_authenticity_token, only: :reply
+    before_action :setup_qy_app, only: [:verify_url, :reply]
+    before_action :setup_wechat_message, only: :reply
 
     # 验证URL有效性
     # TODO: refactor
